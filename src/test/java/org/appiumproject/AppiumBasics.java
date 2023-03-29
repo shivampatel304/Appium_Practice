@@ -13,29 +13,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class AppiumBasics {
+public class AppiumBasics extends BaseTest{
 
     @Test
-    public void AppiumTest() throws MalformedURLException {
-
-        //code to start the appium server
-        AppiumDriverLocalService service = new AppiumServiceBuilder().withAppiumJS(new File("C:\\Users\\shiva\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
-                .withIPAddress("127.0.0.1").usingPort(4723).build();
-
-        //service.start();
-
-        UiAutomator2Options  options = new UiAutomator2Options();
-        options.setDeviceName("ShivamDevice");
-        options.setApp("E:\\Appium\\Appium_project\\src\\test\\java\\resources\\ApiDemos-debug.apk");
-
-        AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
+    public void WifiSettingsName() throws MalformedURLException {
 
         //actual automation
         //Xpath, id, accessibilityId, classname, androidUIAutomator
         driver.findElement(AppiumBy.accessibilityId("Preference")).click();
-        driver.quit();
-        //stop the server
-        service.stop();
 
     }
 }
